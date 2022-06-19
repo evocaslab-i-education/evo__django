@@ -1,6 +1,6 @@
 import random
 
-from password_generator.constants import PASSWORD_CHARACTERS
+from apps.password_generator.constants import PASSWORD_CHARACTERS
 
 
 def generate_password(password_length: int = 10) -> str:
