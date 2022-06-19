@@ -2,7 +2,29 @@
 
 ---
 
-## Preparation
+## 🏠 Homework
+
+Homework related actions.
+
+### ▶️ Run
+
+Make all actions needed for run homework from zero.
+
+```shell
+make d-homework-i-run
+```
+
+### 🚮 Purge
+
+Make all actions needed for run homework from zero.
+
+```shell
+make d-homework-i-purge
+```
+
+---
+
+## 🏗️ Preparation
 
 Make some initialization steps. For example, copy configs.
 
@@ -10,9 +32,13 @@ Make some initialization steps. For example, copy configs.
 make init-configs-i-dev
 ```
 
+---
+
 ## 🐳 Docker
 
-### Run
+Use services in dockers.
+
+### ▶️ Run
 
 Just run
 
@@ -20,7 +46,7 @@ Just run
 make d-run
 ```
 
-### Run extended
+### ⏯️ Run extended
 
 Shutdown previous, run in detached mode, follow logs
 
@@ -28,7 +54,7 @@ Shutdown previous, run in detached mode, follow logs
 make d-run-i-extended
 ```
 
-### Stop
+### ⏹️Stop
 
 Stop services
 
@@ -36,7 +62,7 @@ Stop services
 make d-stop
 ```
 
-### Purge
+### 🚮 Purge
 
 Purge all data related with services
 
