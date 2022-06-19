@@ -238,7 +238,7 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 # Docker
-docker-compose.override.dev.yml
+docker-compose.override.yml
 
 # For SQLite DB.
 db/**
