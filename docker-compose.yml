@@ -1,5 +1,8 @@
 version: '3.8'
 
+volumes:
+  db_data: { }
+  db_data_backups: { }
 
 services:
   app:
@@ -8,4 +11,19 @@ services:
       - "./db:/wd/db:rw"
     ports:
       - "8000:8000"
+    restart: on-failure
+    env_file:
+      - ./.env
     command: '/start.sh'
+
+  postgres:
+    build:
+      context: ./docker/db/
+
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - db_data_backups:/backups
+
+    env_file:
+      - ./.env
+    restart: on-failure

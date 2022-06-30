@@ -13,8 +13,13 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import environ
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 APPS_DIR = BASE_DIR.joinpath('apps')
+
+# Load operating system environment variables and then prepare to use them
+env = environ.Env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
