@@ -69,3 +69,11 @@ Purge all data related with services
 ```shell
 make d-purge
 ```
+
+---
+
+### Add 2 humans via docker
+
+```shell
+make d-i-django-i-create-humans-i-2
+```

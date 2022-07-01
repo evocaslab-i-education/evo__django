@@ -1,1 +1,11 @@
+# Core
 django==4.0.5
+
+# Get environment variables
+django-environ==0.9.0
+
+# DB Postgres
+psycopg2-binary==2.9.3
+
+# For humans generating.
+faker==13.14.0

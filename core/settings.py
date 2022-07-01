@@ -10,22 +10,29 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+# noinspection PyPackageRequirements
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 APPS_DIR = BASE_DIR.joinpath('apps')
 
+env = environ.Env()
+env.read_env(BASE_DIR.joinpath('.env'))
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-5%7m1-=*k8vf2aey9w6mc7zcq2!cg+oiyf^%b@7ky4puvo%enw"
+SECRET_KEY = env.str('DJANGO__SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DJANGO__DEBUG', False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list('DJANGO__ALLOWED_HOSTS', default=[])
 
 # Application definition
 
@@ -84,10 +91,13 @@ WSGI_APPLICATION = "core.wsgi.application"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": str(BASE_DIR.joinpath('db', "db.sqlite3")),
-    }
+    'default': env.db_url_config(
+        env.str(
+            'DB_URL',
+            f'postgresql://{env("POSTGRES_USER")}:{env("POSTGRES_PASSWORD")}@'
+            f'{env("POSTGRES_HOST")}:{env("POSTGRES_PORT")}/{env("POSTGRES_DB")}',
+        )
+    ),
 }
 
 # Password validation
@@ -128,3 +138,31 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose_custom': {
+            'format': "[%(asctime)s.%(msecs)03d] "
+                      "[PROCESS %(process)d %(processName)s] "
+                      "[THREAD %(thread)d %(threadName)s] "
+                      "%(name)s - %(levelname)s - %(message)s",
+            'datefmt': "%Y-%m-%d %H:%M:%S",
+        },
+    },
+    'handlers': {
+        'console_handler_custom': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose_custom',
+        },
+    },
+    'loggers': {
+        '': {
+            'level': 'INFO',
+            'handlers': ['console_handler_custom'],
+
+        },
+    },
+
+}
