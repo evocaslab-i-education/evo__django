@@ -4,26 +4,26 @@ from django.urls import reverse_lazy
 
 
 class ColorsChoices(models.TextChoices):
-    BLACK = 'black', 'Black'
-    WHITE = 'white', 'White'
-    RED = 'red', 'Red'
+    BLACK = "black", "Black"
+    WHITE = "white", "White"
+    RED = "red", "Red"
 
 
 class Color(models.Model):
-    name = models.CharField('Name', help_text='Name of color', max_length=200)
+    name = models.CharField("Name", help_text="Name of color", max_length=200)
 
     def __str__(self) -> str:
-        return f'{self.name}'
+        return f"{self.name}"
 
     __repr__ = __str__
 
 
 class Human(models.Model):
-    name = models.CharField('Name', help_text='It is name of human', max_length=200)
-    age = models.PositiveSmallIntegerField('Age', help_text='How old this human', validators=[MaxValueValidator(150)])
+    name = models.CharField("Name", help_text="It is name of human", max_length=200)
+    age = models.PositiveSmallIntegerField("Age", help_text="How old this human", validators=[MaxValueValidator(150)])
 
     favourite_color = models.CharField(
-        'Favourite color',
+        "Favourite color",
         max_length=32,
         choices=ColorsChoices.choices,
         default=ColorsChoices.WHITE,
@@ -31,7 +31,7 @@ class Human(models.Model):
 
     favourite_color_by_foreign_key = models.ForeignKey(
         Color,
-        related_name='humans_related_by_foreign_key',
+        related_name="humans_related_by_foreign_key",
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
@@ -39,14 +39,14 @@ class Human(models.Model):
 
     favourite_color_many_to_many = models.ManyToManyField(
         Color,
-        related_name='humans_related_by_many_to_many',
+        related_name="humans_related_by_many_to_many",
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
-        return f'{self.name} - {self.age}'
+        return f"{self.name} - {self.age}"
 
     __repr__ = __str__
 
@@ -54,8 +54,8 @@ class Human(models.Model):
     #     return str(self)
 
     def get_absolute_url(self):
-        return reverse_lazy('humans:edit', kwargs={'pk': self.pk})
+        return reverse_lazy("humans:edit", kwargs={"pk": self.pk})
 
 
 class SuperHuman(Human):
-    level = models.PositiveIntegerField('Level', help_text='Level of power')
+    level = models.PositiveIntegerField("Level", help_text="Level of power")

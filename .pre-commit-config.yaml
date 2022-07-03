@@ -1,0 +1,54 @@
+repos:
+
+  #
+  #  - repo: https://github.com/pycqa/isort
+  #    rev: 5.9.3
+  #    hooks:
+  #      - id: isort
+  #
+
+  #
+  #  - repo: https://github.com/asottile/yesqa
+  #    rev: v1.2.3
+  #    hooks:
+  #      - id: yesqa
+
+
+  #  - repo: https://github.com/DanielNoord/pydocstringformatter
+  #    rev: v0.6.1
+  #    hooks:
+  #      - id: pydocstringformatter
+
+  # https://github.com/asottile/pyupgrade
+  - repo: local
+    hooks:
+      - id: pyupgrade
+        name: pyupgrade
+        entry: pyupgrade
+        language: system
+        types: [ python ]
+        args:
+          [
+            "--py310-plus",
+          ]
+
+  # https://github.com/psf/black
+  - repo: local
+    hooks:
+      - id: black
+        name: black
+        entry: black
+        language: system
+        types: [ python ]
+
+  - repo: local
+    hooks:
+      - id: prospector
+        name: prospector
+        entry: env PYTHONPATH=${PYTHONPATH}:${PWD}/apps env DJANGO_SETTINGS_MODULE=core.settings prospector
+        language: system
+        types: [ python ]
+        args:
+          [
+            "--die-on-tool-error",
+          ]

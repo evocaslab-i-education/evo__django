@@ -6,18 +6,26 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('humans', '0004_human_favourite_color_many_to_many_and_more'),
+        ("humans", "0004_human_favourite_color_many_to_many_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='SuperHuman',
+            name="SuperHuman",
             fields=[
-                ('human_ptr',
-                 models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True,
-                                      primary_key=True, serialize=False, to='humans.human')),
-                ('level', models.PositiveIntegerField(help_text='Level of power', verbose_name='Level')),
+                (
+                    "human_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="humans.human",
+                    ),
+                ),
+                ("level", models.PositiveIntegerField(help_text="Level of power", verbose_name="Level")),
             ],
-            bases=('humans.human',),
+            bases=("humans.human",),
         ),
     ]

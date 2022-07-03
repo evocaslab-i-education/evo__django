@@ -86,3 +86,13 @@ django-i-create-humans-i-2:
 d-i-django-i-create-humans-i-2:
 	@docker-compose run --rm app make django-i-create-humans-i-2
 
+.PHONY: init-dev
+init-dev:
+	@pip install --upgrade pip && \
+	pip install --requirement requirements.txt && \
+	pre-commit install
+
+
+.PHONY: pre-commit-all
+pre-commit-all:
+	@pre-commit run --all-files
