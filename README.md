@@ -1,6 +1,7 @@
 # Django application
 
 ---
+![Main](https://github.com/evocaslab-i-education/evo__django/actions/workflows/python-main.yml/badge.svg)
 
 ## 🏠 Homework
 
