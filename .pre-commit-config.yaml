@@ -45,7 +45,7 @@ repos:
     hooks:
       - id: prospector
         name: prospector
-        entry: env PYTHONPATH=${PYTHONPATH}:${PWD}/apps env DJANGO_SETTINGS_MODULE=core.settings prospector
+        entry: env DJANGO_SETTINGS_MODULE=core.settings prospector
         language: system
         types: [ python ]
         args:

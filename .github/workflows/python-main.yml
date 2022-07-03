@@ -43,5 +43,7 @@ jobs:
       #          flake8 .
 
       - name: Lint
+        env:
+          DJANGO_SETTINGS_MODULE: core.settings
         run: |
           make pre-commit-all
