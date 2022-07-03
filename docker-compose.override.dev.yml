@@ -3,5 +3,9 @@ version: '3.8'
 
 services:
   app:
+    environment:
+      POSTGRES_HOST: postgres
+
+  postgres:
     ports:
-      - "48000:8000"
+      - "5432:5432"

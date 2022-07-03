@@ -11,14 +11,14 @@ def create(request: HttpRequest) -> HttpResponse:
 
         if form.is_valid():
             form.save()
-            messages.info(request, 'Human created')
-            return redirect('humans:show_all')
+            messages.info(request, "Human created")
+            return redirect("humans:show_all")
 
     else:
         form = HumanForm()
 
     return render(
         request,
-        'humans/human_form.html',
-        {'form': form},
+        "humans/human_form.html",
+        {"form": form},
     )

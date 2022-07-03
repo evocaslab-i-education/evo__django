@@ -6,21 +6,22 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('humans', '0002_human_favourite_color'),
+        ("humans", "0002_human_favourite_color"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Color',
+            name="Color",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(help_text='Name of color', max_length=200, verbose_name='Name')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("name", models.CharField(help_text="Name of color", max_length=200, verbose_name="Name")),
             ],
         ),
         migrations.AddField(
-            model_name='human',
-            name='favourite_color_by_foreign_key',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL,
-                                    to='humans.color'),
+            model_name="human",
+            name="favourite_color_by_foreign_key",
+            field=models.ForeignKey(
+                blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to="humans.color"
+            ),
         ),
     ]

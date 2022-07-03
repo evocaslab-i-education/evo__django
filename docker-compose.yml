@@ -1,11 +1,28 @@
 version: '3.8'
 
+volumes:
+  postgres_data: { }
 
 services:
   app:
     build: .
-    volumes:
-      - "./db:/wd/db:rw"
     ports:
       - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    profiles:
+      - full_dev
+
     command: '/start.sh'
+
+  postgres:
+    image: postgres:14.4
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env
+    profiles:
+      - full_dev
+      - local_dev
