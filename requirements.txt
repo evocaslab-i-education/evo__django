@@ -10,5 +10,17 @@ psycopg2-binary==2.9.3
 # For humans generating.
 faker==13.14.0
 
+# [code_style]-[BEGIN]
+# Pre-commit actions.
+pre-commit==2.19.0
+# Upgrade code.
+pyupgrade==2.34.0
+# Remove unnecessary # noqa comments.
+yesqa==1.3.0
+# Formatter. Apply codestyle.
+black==22.6.0
 # Linter. Check codestyle.
 flake8==4.0.1
+# Linter. Check codestyle.
+pylint==2.14.4
+# [code_style]-[END]
