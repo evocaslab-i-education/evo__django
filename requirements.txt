@@ -9,3 +9,6 @@ psycopg2-binary==2.9.3
 
 # For humans generating.
 faker==13.14.0
+
+# Linter. Check codestyle.
+flake8==4.0.1
