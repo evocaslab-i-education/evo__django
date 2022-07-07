@@ -20,6 +20,8 @@ urlpatterns = [
     path("password-generator/", include("apps.password_generator.urls")),
     path("humans/", include("apps.humans.urls")),
     path("session_experiments/", include("apps.session_experiments.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/", include("apps.accounts.urls")),
     path("admin/", admin.site.urls),
     path("", include("apps.base.urls")),
 ]

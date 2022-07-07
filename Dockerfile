@@ -7,8 +7,8 @@ ARG USER=user
 
 WORKDIR ${WORKDIR}
 
-RUN useradd --system ${USER} && \
-    chown --recursive ${USER} ${WORKDIR}
+RUN useradd --system ${User} && \
+    chown --recursive ${User} ${WORKDIR}
 
 RUN apt update && apt upgrade -y
 

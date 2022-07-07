@@ -1,4 +1,4 @@
-<header>
+<header class="d-flex justify-content-center">
   <div class="d-flex justify-content-center">
     <ul class="nav">
       <li class="nav-item">
@@ -14,5 +14,18 @@
         <a class="nav-link" href="{% url 'session_experiments:index' %}">Session Experiments</a>
       </li>
     </ul>
+  </div>
+
+  <div class="d-flex justify-content-center align-items-center">
+    {% if user.is_authenticated %}
+      <div>Hi {{ user.username }}! </div>
+      <div><a href="{% url 'logout' %}">Log Out</a></div>
+    {% else %}
+      <div>
+        <a href="{% url 'login' %}">Log In</a>
+        <span> or </span>
+        <a href="{% url 'signup' %}">Sign Up</a>
+      </div>
+    {% endif %}
   </div>
 </header>
