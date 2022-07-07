@@ -23,7 +23,7 @@ d-run:
 d-run-i-local-dev:
 	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
 		COMPOSE_PROFILES=local_dev \
-		docker-compose up --build postgres
+		docker-compose up --build
 
 .PHONY: d-run-i-extended
 # Shutdown previous, run in detached mode, follow logs

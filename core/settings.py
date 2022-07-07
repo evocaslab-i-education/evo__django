@@ -36,11 +36,6 @@ ALLOWED_HOSTS = env.list("DJANGO__ALLOWED_HOSTS", default=[])
 
 # Application definition
 
-
-class Bla:
-    pass
-
-
 DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -52,8 +47,10 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     "apps.base",
+    "apps.users",
     "apps.password_generator",
     "apps.humans",
+    "apps.session_experiments",
 ]
 
 THIRD_PARTY_APPS: list[str] = []
@@ -89,6 +86,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "core.wsgi.application"
+
+AUTH_USER_MODEL = "users.User"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
