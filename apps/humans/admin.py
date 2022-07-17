@@ -5,6 +5,10 @@ from .models import Human, Color, SuperHuman
 admin.site.register(Human)
 
 
+# admin.site.register(Color)
+# admin.site.register(SuperHuman)
+
+
 class SuperHumanInlineAdmin(admin.TabularInline):
     model = SuperHuman
 

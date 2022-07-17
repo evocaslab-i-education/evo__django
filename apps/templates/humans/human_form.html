@@ -1,9 +1,11 @@
 {% extends '_helpers/_base.html' %}
+{% load crispy_forms_tags %}
 
 {% block body %}
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        {#        {{ form | crispy }}#}
+        {% crispy form %}
         <button type="submit" class="btn btn-success">Create</button>
     </form>
 {% endblock %}

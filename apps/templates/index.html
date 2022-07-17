@@ -1,5 +1,8 @@
 {% extends '_helpers/_base.html' %}
+{% load static %}
 
 {% block body %}
-    <p>Welcome, my friend</p>
+    <p class="greetings-text">Welcome!</p>
+    <p class="greetings-text">You are my friend</p>
+    <img class="logo" src="{% static 'images/logo.svg' %}" alt="Main image"/>
 {% endblock %}

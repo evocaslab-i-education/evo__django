@@ -9,11 +9,10 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
 from pathlib import Path
 
 # noinspection PyPackageRequirements
-import environ  # type: ignore
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,11 +48,13 @@ LOCAL_APPS = [
     "apps.users",
     "apps.password_generator",
     "apps.humans",
-    "apps.session_experiments",
-    "apps.accounts",
+    "apps.sessions_example",
 ]
 
-THIRD_PARTY_APPS: list[str] = []
+THIRD_PARTY_APPS = [
+    "crispy_forms",
+    "crispy_bootstrap5",
+]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
@@ -68,6 +69,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "core.urls"
+
+AUTH_USER_MODEL = "users.User"
+
+LOGIN_REDIRECT_URL = "index"
+LOGOUT_REDIRECT_URL = LOGIN_REDIRECT_URL
 
 TEMPLATES = [
     {
@@ -86,11 +92,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "core.wsgi.application"
-
-AUTH_USER_MODEL = "users.User"
-
-LOGIN_REDIRECT_URL = "index"
-LOGOUT_REDIRECT_URL = LOGIN_REDIRECT_URL
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -138,6 +139,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
+
+STATICFILES_MAIN_DIR = APPS_DIR.joinpath("static")
+
+STATICFILES_DIRS = [
+    STATICFILES_MAIN_DIR,
+]
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR.joinpath("media")
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

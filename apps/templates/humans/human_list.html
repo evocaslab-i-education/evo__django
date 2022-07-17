@@ -8,6 +8,10 @@
     <ol>
         {% for human in object_list %}
             <li style="margin: .2em">
+                {% if human.avatar %}
+                    <img class="human-avatar" src="{{ human.avatar.url }}" alt="{{ human.name }}"/>
+                {% endif %}
+
                 <span>{{ human.name }} - {{ human.age }}</span>
 
                 <a href="{% url 'humans:edit' pk=human.pk %}">

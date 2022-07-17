@@ -1,22 +1,12 @@
 output-format: pylint
 
-ignore-paths:
-  - venv
-
-
-pycodestyle:
-  options:
-    max-line-length: 120
-
-
+max-line-length: 120
 
 uses:
-  - django
-  - celery
+    - django
 
+pylint:
+    run: false
 
-#mypy:
-#  run: true
-
-bandit:
-  run: true
+#bandit:
+#    run: true

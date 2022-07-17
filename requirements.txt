@@ -1,6 +1,5 @@
 # Core
 django==4.0.5
-django-stubs[compatible-mypy]==1.12.0
 
 # Get environment variables
 django-environ==0.9.0
@@ -12,12 +11,19 @@ psycopg2-binary==2.9.3
 faker==13.14.0
 
 # [code_style]-[BEGIN]
-# Pre-commit actions.
+# Pre-commit hook.
 pre-commit==2.19.0
-# Upgrade code.
+# Upgrade syntax.
 pyupgrade==2.34.0
 # Formatter. Apply codestyle.
 black==22.6.0
-# Linter. Check codestyle.
+# Static analysis
 prospector[with_everything]==1.7.7
 # [code_style]-[END]
+
+# Images
+pillow==9.2.0
+
+# Forms
+django-crispy-forms==1.14.0
+crispy-bootstrap5==0.6.0

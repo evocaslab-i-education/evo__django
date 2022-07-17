@@ -1,0 +1,16 @@
+.greetings-text {
+    text-shadow: 0 1px 1px aqua;
+}
+
+p.greetings-text {
+    color: green;
+}
+
+.human-avatar {
+    max-width: 5em;
+}
+
+.logo {
+    width: 10em;
+    max-width: 10em;
+}

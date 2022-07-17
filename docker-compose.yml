@@ -14,7 +14,9 @@ services:
       - postgres
     profiles:
       - full_dev
-
+    volumes:
+      - './media/:/wd/media:rw'
+    user: '1000'
     command: '/start.sh'
 
   postgres:

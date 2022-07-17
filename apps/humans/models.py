@@ -1,3 +1,6 @@
+import uuid
+
+from django.conf import settings
 from django.core.validators import MaxValueValidator
 from django.db import models
 from django.urls import reverse_lazy
@@ -18,9 +21,29 @@ class Color(models.Model):
     __repr__ = __str__
 
 
+def get_icon_path(instance, filename: str) -> str:
+    _, extension = filename.rsplit(".", maxsplit=1)
+    return f"humans/avatars/{instance.pk}/{uuid.uuid4()}/avatar.{extension}"
+
+
 class Human(models.Model):
     name = models.CharField("Name", help_text="It is name of human", max_length=200)
     age = models.PositiveSmallIntegerField("Age", help_text="How old this human", validators=[MaxValueValidator(150)])
+
+    avatar = models.ImageField(
+        "Avatar",
+        upload_to=get_icon_path,
+        max_length=255,
+        blank=True,
+        null=True,
+    )
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+    )
 
     favourite_color = models.CharField(
         "Favourite color",

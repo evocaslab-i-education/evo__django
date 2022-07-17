@@ -92,7 +92,6 @@ init-dev:
 	pip install --requirement requirements.txt && \
 	pre-commit install
 
-
-.PHONY: pre-commit-all
-pre-commit-all:
+.PHONY: pre-commit-run-all
+pre-commit-run-all:
 	@pre-commit run --all-files

@@ -7,8 +7,8 @@ ARG USER=user
 
 WORKDIR ${WORKDIR}
 
-RUN useradd --system ${User} && \
-    chown --recursive ${User} ${WORKDIR}
+RUN useradd --system ${USER} && \
+    chown --recursive ${USER} ${WORKDIR}
 
 RUN apt update && apt upgrade -y
 
@@ -33,5 +33,6 @@ USER ${USER}
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-VOLUME ${WORKDIR}/db
+VOLUME ${WORKDIR}/media
+
 EXPOSE 8000

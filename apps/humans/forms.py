@@ -9,4 +9,5 @@ class HumanForm(forms.ModelForm):
         fields = (
             "name",
             "age",
+            "avatar",
         )

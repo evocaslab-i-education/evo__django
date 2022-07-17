@@ -1,10 +1,12 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render, redirect
 
 from apps.humans.forms import HumanForm
 
 
+@login_required
 def create(request: HttpRequest) -> HttpResponse:
     if request.POST:
         form = HumanForm(request.POST)
