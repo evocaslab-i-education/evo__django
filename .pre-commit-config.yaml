@@ -52,3 +52,11 @@ repos:
           [
             "--die-on-tool-error",
           ]
+
+#  - repo: local
+#    hooks:
+#      - id: tests
+#        name: tests
+#        entry: pytest
+#        language: system
+#        types: [ python ]

@@ -4,6 +4,7 @@ ignore-paths:
   - venv
 
 
+
 pycodestyle:
   options:
     max-line-length: 120
@@ -18,5 +19,5 @@ uses:
 #mypy:
 #  run: true
 
-bandit:
-  run: true
+#bandit:
+#  run: true

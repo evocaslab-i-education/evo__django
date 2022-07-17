@@ -21,3 +21,14 @@ black==22.6.0
 # Linter. Check codestyle.
 prospector[with_everything]==1.7.7
 # [code_style]-[END]
+
+# [tests]-[BEGIN]
+pytest-django==4.5.2
+# [tests]-[END]
+
+# Images
+Pillow==9.2.0
+
+# Forms
+django-crispy-forms==1.14.0
+crispy-bootstrap5==0.6
