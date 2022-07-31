@@ -14,6 +14,7 @@ services:
       - postgres
     profiles:
       - full_dev
+    restart: on-failure
     volumes:
       - './media/:/wd/media:rw'
     user: '1000'
@@ -28,3 +29,12 @@ services:
     profiles:
       - full_dev
       - local_dev
+    restart: on-failure
+
+  rabbitmq:
+    image: rabbitmq:3.10.6-alpine
+    hostname: rabbitmq
+    profiles:
+      - full_dev
+      - local_dev
+    restart: on-failure

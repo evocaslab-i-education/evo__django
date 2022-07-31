@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GhActionsToolbarSettings">
+    <option name="customRepos">
+      <map>
+        <entry key="https://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@github.com/iCQR/natrix">
+          <value>
+            <RepoSettings />
+          </value>
+        </entry>
+        <entry key="https://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@github.com/iCQR/natrix-vue-components.git">
+          <value>
+            <RepoSettings />
+          </value>
+        </entry>
+        <entry key="https://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@github.com/iCQR/venom">
+          <value>
+            <RepoSettings />
+          </value>
+        </entry>
+        <entry key="https://github.com/evocaslab-i-education/evo__django">
+          <value>
+            <RepoSettings />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -27,3 +27,5 @@ pillow==9.2.0
 # Forms
 django-crispy-forms==1.14.0
 crispy-bootstrap5==0.6.0
+
+celery==5.2.7
